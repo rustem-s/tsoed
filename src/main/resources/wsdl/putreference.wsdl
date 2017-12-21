@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://edocs523.local/ws/tsoed/putreference" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="TSD_WsPutReferenceModel" targetNamespace="http://edocs523.local/ws/tsoed/putreference">
+<types>
+
+<xsd:schema targetNamespace="http://schemas.xmlsoap.org/soap/encoding/">
+    <xsd:include schemaLocation="soap-enc.xsd"/>
+</xsd:schema>
+
+<xsd:schema targetNamespace="http://edocs523.local/ws/tsoed/putreference">
+    <xsd:complexType name="ArrayOfQuestionTypes">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:QuestionTypes[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="QuestionTypes">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="form" type="xsd:string"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+            <xsd:element name="id_samruk" type="xsd:string"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putQuestionTypes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfQuestionTypes"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putQuestionTypesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putQuestionTypesResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfControlTypes">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:ControlTypes[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="ControlTypes">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="deadline" type="xsd:int"/>
+            <xsd:element name="form" type="xsd:string"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putControlTypes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfControlTypes"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putControlTypesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putControlTypesResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfDocTypes">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:DocTypes[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="DocTypes">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="form" type="xsd:string"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+            <xsd:element name="id_samruk" type="xsd:string"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putDocTypes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfDocTypes"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putDocTypesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putDocTypesResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfOrganizationTypes">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:OrganizationTypes[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="OrganizationTypes">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putOrganizationTypes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfOrganizationTypes"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putOrganizationTypesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putOrganizationTypesResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfDepartmentTypes">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:DepartmentTypes[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="DepartmentTypes">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putDepartmentTypes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfDepartmentTypes"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putDepartmentTypesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putDepartmentTypesResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfPosts">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Posts[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="Posts">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putPosts">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfPosts"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putPostsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putPostsResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putDocumentReasons">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfPosts"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putDocumentReasonsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putDocumentReasonsResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfPRActions">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:PRActions[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="PRActions">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putPRActions">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfPRActions"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putPRActionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putPRActionsResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfExecutionResults">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:ExecutionResults[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="ExecutionResults">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="category" type="xsd:string"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putExecutionResults">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfExecutionResults"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putExecutionResultsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putExecutionResultsResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfEstablishedPosts">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:EstablishedPosts[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="EstablishedPosts">
+        <xsd:all>
+            <xsd:element name="main_id" type="xsd:int"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="post_name_ru" type="xsd:string"/>
+            <xsd:element name="post_name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putEstablishedPosts">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfEstablishedPosts"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putEstablishedPostsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putEstablishedPostsResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfRegions">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Regions[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="Regions">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="region_type" type="xsd:string"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putRegions">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfRegions"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putRegionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putRegionsResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfCorrespondents">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Correspondents[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="Correspondents">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="correspondent" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="abbr_ru" type="xsd:string"/>
+            <xsd:element name="abbr_kz" type="xsd:string"/>
+            <xsd:element name="esedo_member_id" type="xsd:int"/>
+            <xsd:element name="have_connection" type="xsd:string"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+            <xsd:element name="id_samruk" type="xsd:string"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putCorrespondents">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfCorrespondents"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putCorrespondentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putCorrespondentsResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfCorrespondentDepartments">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:CorrespondentDepartments[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="CorrespondentDepartments">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="correspondent" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="abbr_ru" type="xsd:string"/>
+            <xsd:element name="abbr_kz" type="xsd:string"/>
+            <xsd:element name="esedo_member_id" type="xsd:int"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+            <xsd:element name="main_id" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putCorrespondentDepartments">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfCorrespondentDepartments"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putCorrespondentDepartmentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putCorrespondentDepartmentsResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfProtocolType">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:ProtocolType[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="ProtocolType">
+        <xsd:all>
+            <xsd:element name="title" type="xsd:string"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putProtocolType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfProtocolType"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putProtocolTypeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putProtocolTypeResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ArrayOfApplyStatutes">
+        <xsd:complexContent>
+            <xsd:restriction base="soap-enc:Array">
+                <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:ApplyStatutes[]"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="ApplyStatutes">
+        <xsd:all>
+            <xsd:element name="code" type="xsd:string"/>
+            <xsd:element name="name_ru" type="xsd:string"/>
+            <xsd:element name="name_kz" type="xsd:string"/>
+            <xsd:element name="esedo_c_id" type="xsd:int"/>
+            <xsd:element name="is_deleted" type="xsd:int"/>
+        </xsd:all>
+    </xsd:complexType>
+    <xsd:element name="putApplyStatutes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="types" type="tns:ArrayOfApplyStatutes"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="putApplyStatutesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="putApplyStatutesResult" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+</types>
+<portType name="TSD_WsPutReferenceModelPort">
+<operation name="putQuestionTypes">
+    <documentation>@param QuestionTypes[]</documentation>
+    <input message="tns:putQuestionTypesIn"/>
+    <output message="tns:putQuestionTypesOut"/>
+</operation>
+<operation name="putControlTypes">
+    <documentation>@param ControlTypes[]</documentation>
+    <input message="tns:putControlTypesIn"/>
+    <output message="tns:putControlTypesOut"/>
+</operation>
+<operation name="putDocTypes">
+    <documentation>@param DocTypes[]</documentation>
+    <input message="tns:putDocTypesIn"/>
+    <output message="tns:putDocTypesOut"/>
+</operation>
+<operation name="putOrganizationTypes">
+    <documentation>@param OrganizationTypes[]</documentation>
+    <input message="tns:putOrganizationTypesIn"/>
+    <output message="tns:putOrganizationTypesOut"/>
+</operation>
+<operation name="putDepartmentTypes">
+    <documentation>@param DepartmentTypes[]</documentation>
+    <input message="tns:putDepartmentTypesIn"/>
+    <output message="tns:putDepartmentTypesOut"/>
+</operation>
+<operation name="putPosts">
+    <documentation>@param Posts[]</documentation>
+    <input message="tns:putPostsIn"/>
+    <output message="tns:putPostsOut"/>
+</operation>
+<operation name="putDocumentReasons">
+    <documentation>@param Posts[]</documentation>
+    <input message="tns:putDocumentReasonsIn"/>
+    <output message="tns:putDocumentReasonsOut"/>
+</operation>
+<operation name="putPRActions">
+    <documentation>@param PRActions[]</documentation>
+    <input message="tns:putPRActionsIn"/>
+    <output message="tns:putPRActionsOut"/>
+</operation>
+<operation name="putExecutionResults">
+    <documentation>@param ExecutionResults[]</documentation>
+    <input message="tns:putExecutionResultsIn"/>
+    <output message="tns:putExecutionResultsOut"/>
+</operation>
+<operation name="putEstablishedPosts">
+    <documentation>@param EstablishedPosts[]</documentation>
+    <input message="tns:putEstablishedPostsIn"/>
+    <output message="tns:putEstablishedPostsOut"/>
+</operation>
+<operation name="putRegions">
+    <documentation>@param Regions[]</documentation>
+    <input message="tns:putRegionsIn"/>
+    <output message="tns:putRegionsOut"/>
+</operation>
+<operation name="putCorrespondents">
+    <documentation>@param Correspondents[]</documentation>
+    <input message="tns:putCorrespondentsIn"/>
+    <output message="tns:putCorrespondentsOut"/>
+</operation>
+<operation name="putCorrespondentDepartments">
+    <documentation>@param CorrespondentDepartments[]</documentation>
+    <input message="tns:putCorrespondentDepartmentsIn"/>
+    <output message="tns:putCorrespondentDepartmentsOut"/>
+</operation>
+<operation name="putProtocolType">
+    <documentation>@param ProtocolType[]</documentation>
+    <input message="tns:putProtocolTypeIn"/>
+    <output message="tns:putProtocolTypeOut"/>
+</operation>
+<operation name="putApplyStatutes">
+    <documentation>@param ApplyStatutes[]</documentation>
+    <input message="tns:putApplyStatutesIn"/>
+    <output message="tns:putApplyStatutesOut"/>
+</operation>
+</portType>
+<binding name="TSD_WsPutReferenceModelBinding" type="tns:TSD_WsPutReferenceModelPort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="putQuestionTypes">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putQuestionTypes"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putControlTypes">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putControlTypes"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putDocTypes">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putDocTypes"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putOrganizationTypes">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putOrganizationTypes"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putDepartmentTypes">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putDepartmentTypes"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putPosts">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putPosts"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putDocumentReasons">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putDocumentReasons"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putPRActions">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putPRActions"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putExecutionResults">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putExecutionResults"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putEstablishedPosts">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putEstablishedPosts"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putRegions">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putRegions"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putCorrespondents">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putCorrespondents"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putCorrespondentDepartments">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putCorrespondentDepartments"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putProtocolType">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putProtocolType"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+<operation name="putApplyStatutes">
+    <soap:operation soapAction="http://edocs523.local/ws/tsoed/putreference#putApplyStatutes"/>
+    <input>
+        <soap:body use="literal"/>
+    </input>
+    <output>
+        <soap:body use="literal"/>
+    </output>
+</operation>
+</binding>
+<service name="TSD_WsPutReferenceModelService">
+<port name="TSD_WsPutReferenceModelPort" binding="tns:TSD_WsPutReferenceModelBinding">
+    <soap:address location="http://edocs523.local/ws/tsoed/putreference"/>
+</port>
+</service>
+<message name="putQuestionTypesIn">
+<part name="parameters" element="tns:putQuestionTypes"/>
+</message>
+<message name="putQuestionTypesOut">
+<part name="parameters" element="tns:putQuestionTypesResponse"/>
+</message>
+<message name="putControlTypesIn">
+<part name="parameters" element="tns:putControlTypes"/>
+</message>
+<message name="putControlTypesOut">
+<part name="parameters" element="tns:putControlTypesResponse"/>
+</message>
+<message name="putDocTypesIn">
+<part name="parameters" element="tns:putDocTypes"/>
+</message>
+<message name="putDocTypesOut">
+<part name="parameters" element="tns:putDocTypesResponse"/>
+</message>
+<message name="putOrganizationTypesIn">
+<part name="parameters" element="tns:putOrganizationTypes"/>
+</message>
+<message name="putOrganizationTypesOut">
+<part name="parameters" element="tns:putOrganizationTypesResponse"/>
+</message>
+<message name="putDepartmentTypesIn">
+<part name="parameters" element="tns:putDepartmentTypes"/>
+</message>
+<message name="putDepartmentTypesOut">
+<part name="parameters" element="tns:putDepartmentTypesResponse"/>
+</message>
+<message name="putPostsIn">
+<part name="parameters" element="tns:putPosts"/>
+</message>
+<message name="putPostsOut">
+<part name="parameters" element="tns:putPostsResponse"/>
+</message>
+<message name="putDocumentReasonsIn">
+<part name="parameters" element="tns:putDocumentReasons"/>
+</message>
+<message name="putDocumentReasonsOut">
+<part name="parameters" element="tns:putDocumentReasonsResponse"/>
+</message>
+<message name="putPRActionsIn">
+<part name="parameters" element="tns:putPRActions"/>
+</message>
+<message name="putPRActionsOut">
+<part name="parameters" element="tns:putPRActionsResponse"/>
+</message>
+<message name="putExecutionResultsIn">
+<part name="parameters" element="tns:putExecutionResults"/>
+</message>
+<message name="putExecutionResultsOut">
+<part name="parameters" element="tns:putExecutionResultsResponse"/>
+</message>
+<message name="putEstablishedPostsIn">
+<part name="parameters" element="tns:putEstablishedPosts"/>
+</message>
+<message name="putEstablishedPostsOut">
+<part name="parameters" element="tns:putEstablishedPostsResponse"/>
+</message>
+<message name="putRegionsIn">
+<part name="parameters" element="tns:putRegions"/>
+</message>
+<message name="putRegionsOut">
+<part name="parameters" element="tns:putRegionsResponse"/>
+</message>
+<message name="putCorrespondentsIn">
+<part name="parameters" element="tns:putCorrespondents"/>
+</message>
+<message name="putCorrespondentsOut">
+<part name="parameters" element="tns:putCorrespondentsResponse"/>
+</message>
+<message name="putCorrespondentDepartmentsIn">
+<part name="parameters" element="tns:putCorrespondentDepartments"/>
+</message>
+<message name="putCorrespondentDepartmentsOut">
+<part name="parameters" element="tns:putCorrespondentDepartmentsResponse"/>
+</message>
+<message name="putProtocolTypeIn">
+<part name="parameters" element="tns:putProtocolType"/>
+</message>
+<message name="putProtocolTypeOut">
+<part name="parameters" element="tns:putProtocolTypeResponse"/>
+</message>
+<message name="putApplyStatutesIn">
+<part name="parameters" element="tns:putApplyStatutes"/>
+</message>
+<message name="putApplyStatutesOut">
+<part name="parameters" element="tns:putApplyStatutesResponse"/>
+</message>
+</definitions>

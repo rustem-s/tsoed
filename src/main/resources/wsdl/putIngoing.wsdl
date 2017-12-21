@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://tsoed.local/ws/processing/index" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PRC_WsModel" targetNamespace="http://tsoed.local/ws/processing/index">
+    <types>
+        <xsd:schema targetNamespace="http://schemas.xmlsoap.org/soap/encoding/">
+            <xsd:include schemaLocation="soap-enc.xsd"/>
+        </xsd:schema>
+
+        <xsd:schema targetNamespace="http://tsoed.local/ws/processing/index">
+            <xsd:complexType name="ArrayOfCorrespondent">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Correspondent[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="Correspondent">
+                <xsd:all>
+                    <xsd:element name="correspondent_esedoid" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfFileLink">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:FileLink[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="FileLink">
+                <xsd:all>
+                    <xsd:element name="file_link" type="xsd:string" nillable="true"/>
+                    <xsd:element name="file_size" type="xsd:string" nillable="true"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfSign">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Sign[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="Sign">
+                <xsd:all>
+                    <xsd:element name="type" type="xsd:string"/>
+                    <xsd:element name="sign" type="xsd:string"/>
+                    <xsd:element name="signer_name" type="xsd:string"/>
+                    <xsd:element name="sign_time" type="xsd:string"/>
+                    <xsd:element name="signed_filename" type="xsd:string"/>
+                    <xsd:element name="format" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfDocument">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Document[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="Document">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:element name="putIngoing">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="tns:ArrayOfCorrespondent"/>
+                        <xsd:element name="correspondent_from_kz" type="tns:ArrayOfCorrespondent"/>
+                        <xsd:element name="performers" type="tns:ArrayOfCorrespondent"/>
+                        <xsd:element name="performers_kz" type="tns:ArrayOfCorrespondent"/>
+                        <xsd:element name="documentid" type="xsd:string"/>
+                        <xsd:element name="from" type="xsd:string"/>
+                        <xsd:element name="doclog_send_time" type="xsd:string"/>
+                        <xsd:element name="outgoing_number" type="xsd:string"/>
+                        <xsd:element name="outgoing_date" type="xsd:date"/>
+                        <xsd:element name="author" type="xsd:string"/>
+                        <xsd:element name="author_kz" type="xsd:string"/>
+                        <xsd:element name="performer" type="xsd:string"/>
+                        <xsd:element name="performer_kz" type="xsd:string"/>
+                        <xsd:element name="performer_phone" type="xsd:string"/>
+                        <xsd:element name="document_lang" type="xsd:string"/>
+                        <xsd:element name="document_form" type="xsd:string"/>
+                        <xsd:element name="control_type_code" type="xsd:string"/>
+                        <xsd:element name="control_type" type="xsd:string"/>
+                        <xsd:element name="control_type_kz" type="xsd:string"/>
+                        <xsd:element name="external_deadline" type="xsd:date"/>
+                        <xsd:element name="rank" type="xsd:string"/>
+                        <xsd:element name="rank_kz" type="xsd:string"/>
+                        <xsd:element name="delivery_method" type="xsd:string"/>
+                        <xsd:element name="page" type="xsd:int"/>
+                        <xsd:element name="app" type="xsd:int"/>
+                        <xsd:element name="copy" type="xsd:int"/>
+                        <xsd:element name="document_type_esedoid" type="xsd:string"/>
+                        <xsd:element name="document_type_esedoid_kz" type="xsd:string"/>
+                        <xsd:element name="question_type_esedoid" type="xsd:string"/>
+                        <xsd:element name="question_type_esedoid_kz" type="xsd:string"/>
+                        <xsd:element name="content" type="xsd:string"/>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink"/>
+                        <xsd:element name="attachments2" type="tns:ArrayOfFileLink"/>
+                        <xsd:element name="kanc_sign" type="tns:ArrayOfSign"/>
+                        <xsd:element name="ruk_sign" type="tns:ArrayOfSign"/>
+                        <xsd:element name="answer" type="tns:ArrayOfDocument"/>
+                        <xsd:element name="docToNumber" type="xsd:string"/>
+                        <xsd:element name="signerName" type="xsd:string"/>
+                        <xsd:element name="signerNameKz" type="xsd:string"/>
+                        <xsd:element name="preparedDate" type="xsd:date"/>
+                        <xsd:element name="note" type="xsd:string"/>
+                        <xsd:element name="resolution" type="xsd:string"/>
+                        <xsd:element name="receiver_fio_ru" type="xsd:string"/>
+                        <xsd:element name="request_answer" type="xsd:string"/>
+                        <xsd:element name="sectionId" type="xsd:string"/>
+                        <xsd:element name="userUin" type="xsd:string"/>
+                        <xsd:element name="idPortalInternal" type="xsd:string"/>
+                        <xsd:element name="docNoR" type="xsd:string"/>
+                        <xsd:element name="documentReceiverKz" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putIngoingResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putIngoingResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <portType name="PRC_WsModelPort">
+        <operation name="putIngoing">
+            <documentation>@param Correspondent[] $correspondent_from Код корреспондента отправителя</documentation>
+            <input message="tns:putIngoingIn"/>
+            <output message="tns:putIngoingOut"/>
+        </operation>
+    </portType>
+    <binding name="PRC_WsModelBinding" type="tns:PRC_WsModelPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="putIngoing">
+            <soap:operation soapAction="http://tsoed.local/ws/processing/index#putIngoing"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="PRC_WsModelService">
+        <port name="PRC_WsModelPort" binding="tns:PRC_WsModelBinding">
+            <soap:address location="http://tsoed.local/ws/processing/index"/>
+        </port>
+    </service>
+    <message name="putIngoingIn">
+        <part name="parameters" element="tns:putIngoing"/>
+    </message>
+    <message name="putIngoingOut">
+        <part name="parameters" element="tns:putIngoingResponse"/>
+    </message>
+</definitions>
