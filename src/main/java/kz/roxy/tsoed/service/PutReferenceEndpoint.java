@@ -1,4 +1,4 @@
-package kz.roxy.coed.service;
+package kz.roxy.tsoed.service;
 
 import local.edocs523.ws.tsoed.putreference.ArrayOfCorrespondents;
 import local.edocs523.ws.tsoed.putreference.Correspondents;

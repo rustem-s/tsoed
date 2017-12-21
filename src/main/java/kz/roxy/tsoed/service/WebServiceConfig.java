@@ -1,4 +1,4 @@
-package kz.roxy.coed.service;
+package kz.roxy.tsoed.service;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -22,15 +22,23 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
 
-        return new ServletRegistrationBean(servlet, "/ws/*");
+        return new ServletRegistrationBean(servlet, "/*");
     }
 
     @Bean(name = "putreference")
-    public Wsdl11Definition defaultWsdl11Definition() {
+    public Wsdl11Definition putReferenceWsdl11Definition() {
         SimpleWsdl11Definition wsdl11Definition = new SimpleWsdl11Definition();
-        wsdl11Definition.setWsdl(new ClassPathResource("/wsdl/putreference.wsdl"));
+        wsdl11Definition.setWsdl(new ClassPathResource("/wsdl/ServicePutReference.wsdl"));
         return wsdl11Definition;
     }
+
+    @Bean(name = "getfile")
+    public Wsdl11Definition getFileWsdl11Definition() {
+        SimpleWsdl11Definition wsdl11Definition = new SimpleWsdl11Definition();
+        wsdl11Definition.setWsdl(new ClassPathResource("/wsdl/ServiceGetFile.wsdl"));
+        return wsdl11Definition;
+    }
+
 
     /**
      * Publishing XML schema

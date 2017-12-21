@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://tsoed.local/ws/processing/sendfile"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             name="PRC_WsSendFileModel" targetNamespace="http://tsoed.local/ws/processing/sendfile">
+    <types>
+        <xsd:schema targetNamespace="http://tsoed.local/ws/processing/sendfile">
+            <xsd:element name="sendFile">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="sFileId" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="FileContent">
+                <xsd:all>
+                    <xsd:element name="sFileName" type="xsd:string"/>
+                    <xsd:element name="sFileContent" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:element name="sendFileResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="sendFileResult" type="tns:FileContent"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <portType name="PRC_WsSendFileModelPort">
+        <operation name="sendFile">
+            <documentation>@param string $sFileId</documentation>
+            <input message="tns:sendFileIn"/>
+            <output message="tns:sendFileOut"/>
+        </operation>
+    </portType>
+    <binding name="PRC_WsSendFileModelBinding" type="tns:PRC_WsSendFileModelPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="sendFile">
+            <soap:operation soapAction="http://tsoed.local/ws/processing/sendfile#sendFile"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="PRC_WsSendFileModelService">
+        <port name="PRC_WsSendFileModelPort" binding="tns:PRC_WsSendFileModelBinding">
+            <soap:address location="http://tsoed.local/ws/processing/sendfile"/>
+        </port>
+    </service>
+    <message name="sendFileIn">
+        <part name="parameters" element="tns:sendFile"/>
+    </message>
+    <message name="sendFileOut">
+        <part name="parameters" element="tns:sendFileResponse"/>
+    </message>
+</definitions>

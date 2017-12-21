@@ -1,2 +1,4 @@
 client:
   default-uri: http://localhost:8080/ws/putingoing
+server:
+  port: 8080

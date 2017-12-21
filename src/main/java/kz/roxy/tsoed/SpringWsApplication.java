@@ -1,4 +1,4 @@
-package kz.roxy.coed;
+package kz.roxy.tsoed;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

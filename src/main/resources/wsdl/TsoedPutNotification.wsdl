@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://tsoed.local/ws/processing/notification"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             name="PRC_WsNotificationModel" targetNamespace="http://tsoed.local/ws/processing/notification">
+    <types>
+        <xsd:schema targetNamespace="http://schemas.xmlsoap.org/soap/encoding/">
+            <xsd:include schemaLocation="soap-enc.xsd"/>
+        </xsd:schema>
+
+        <xsd:schema targetNamespace="http://tsoed.local/ws/processing/notification">
+            <xsd:complexType name="ArrayOfCorrespondent">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Correspondent[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="Correspondent">
+                <xsd:all>
+                    <xsd:element name="correspondent_esedoid" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfSign">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Sign[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="Sign">
+                <xsd:all>
+                    <xsd:element name="type" type="xsd:string"/>
+                    <xsd:element name="sign" type="xsd:string"/>
+                    <xsd:element name="signer_name" type="xsd:string"/>
+                    <xsd:element name="sign_time" type="xsd:string"/>
+                    <xsd:element name="signed_filename" type="xsd:string"/>
+                    <xsd:element name="format" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:element name="putNotification">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="tns:ArrayOfCorrespondent"/>
+                        <xsd:element name="performers" type="tns:ArrayOfCorrespondent"/>
+                        <xsd:element name="documentid" type="xsd:string"/>
+                        <xsd:element name="from" type="xsd:string"/>
+                        <xsd:element name="doclog_send_time" type="xsd:string"/>
+                        <xsd:element name="state" type="xsd:string"/>
+                        <xsd:element name="date" type="xsd:string"/>
+                        <xsd:element name="reg_nomer" type="xsd:string"/>
+                        <xsd:element name="reg_date" type="xsd:string"/>
+                        <xsd:element name="reg_reject" type="xsd:string"/>
+                        <xsd:element name="reg_reject_text" type="xsd:string"/>
+                        <xsd:element name="performer" type="xsd:string"/>
+                        <xsd:element name="performer_phone" type="xsd:string"/>
+                        <xsd:element name="deadline" type="xsd:dateTime"/>
+                        <xsd:element name="actual_deadline" type="xsd:date"/>
+                        <xsd:element name="exec_result" type="xsd:string"/>
+                        <xsd:element name="sign" type="tns:ArrayOfSign"/>
+                        <xsd:element name="ex_date" type="xsd:string"/>
+                        <xsd:element name="reject_date" type="xsd:dateTime"/>
+                        <xsd:element name="control_type_code" type="xsd:string"/>
+                        <xsd:element name="control_reject_date" type="xsd:dateTime"/>
+                        <xsd:element name="deadline_date" type="xsd:dateTime"/>
+                        <xsd:element name="idPortalInternal" type="xsd:string"/>
+                        <xsd:element name="userUin" type="xsd:string"/>
+                        <xsd:element name="resultCode" type="xsd:string"/>
+                        <xsd:element name="send_status" type="xsd:string"/>
+                        <xsd:element name="tsoed_send_time" type="xsd:string"/>
+                        <xsd:element name="error_type" type="xsd:string"/>
+                        <xsd:element name="error_message" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putNotificationResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putNotificationResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <portType name="PRC_WsNotificationModelPort">
+        <operation name="putNotification">
+            <documentation>@param Correspondent[] $correspondent_from Код корреспондента отправителя</documentation>
+            <input message="tns:putNotificationIn"/>
+            <output message="tns:putNotificationOut"/>
+        </operation>
+    </portType>
+    <binding name="PRC_WsNotificationModelBinding" type="tns:PRC_WsNotificationModelPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="putNotification">
+            <soap:operation soapAction="http://tsoed.local/ws/processing/notification#putNotification"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="PRC_WsNotificationModelService">
+        <port name="PRC_WsNotificationModelPort" binding="tns:PRC_WsNotificationModelBinding">
+            <soap:address location="http://tsoed.local/ws/processing/notification"/>
+        </port>
+    </service>
+    <message name="putNotificationIn">
+        <part name="parameters" element="tns:putNotification"/>
+    </message>
+    <message name="putNotificationOut">
+        <part name="parameters" element="tns:putNotificationResponse"/>
+    </message>
+</definitions>

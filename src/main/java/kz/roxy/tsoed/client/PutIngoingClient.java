@@ -1,4 +1,4 @@
-package kz.roxy.coed.client;
+package kz.roxy.tsoed.client;
 
 import local.tsoed.ws.processing.index.*;
 import org.slf4j.Logger;
@@ -68,7 +68,7 @@ public class PutIngoingClient {
             String documentReceiverKz
 
     ) {
-        ObjectFactory factory = new ObjectFactory();
+        local.tsoed.ws.processing.index.ObjectFactory factory = new local.tsoed.ws.processing.index.ObjectFactory();
 
         PutIngoing putIngoing = factory.createPutIngoing();
         putIngoing.setCorrespondentFrom(correspondentFrom);

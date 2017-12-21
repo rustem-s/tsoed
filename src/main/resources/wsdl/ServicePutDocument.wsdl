@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://edocs523.local/ws/tsoed/putdocument"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             name="TSD_WsPutDocumentModel" targetNamespace="http://edocs523.local/ws/tsoed/putdocument">
+    <types>
+        <xsd:schema targetNamespace="http://schemas.xmlsoap.org/soap/encoding/">
+            <xsd:include schemaLocation="soap-enc.xsd"/>
+        </xsd:schema>
+
+        <xsd:schema targetNamespace="http://edocs523.local/ws/tsoed/putdocument">
+            <xsd:complexType name="ArrayOfFileLink">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:FileLink[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="FileLink">
+                <xsd:all>
+                    <xsd:element name="file_link" type="xsd:string"/>
+                    <xsd:element name="file_size" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfSign">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Sign[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="Sign">
+                <xsd:all>
+                    <xsd:element name="type" type="xsd:string"/>
+                    <xsd:element name="sign" type="xsd:string"/>
+                    <xsd:element name="signer_name" type="xsd:string"/>
+                    <xsd:element name="sign_time" type="xsd:string"/>
+                    <xsd:element name="signed_filename" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfDocument">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Document[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="Document">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:element name="putIngoing">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="xsd:string"/>
+                        <xsd:element name="correspondent_from_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performers" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performers_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="outgoing_number" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="outgoing_date" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="author" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="author_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performer" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performer_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performer_phone" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="document_lang" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="document_form" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="control_type_code" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="control_type" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="control_type_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="external_deadline" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="rank" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="rank_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="delivery_method" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="page" type="xsd:int" minOccurs="0"/>
+                        <xsd:element name="app" type="xsd:int" minOccurs="0"/>
+                        <xsd:element name="copy" type="xsd:int" minOccurs="0"/>
+                        <xsd:element name="document_type_esedoid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="document_type_esedoid_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="question_type_esedoid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="question_type_esedoid_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="content" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink" minOccurs="0"/>
+                        <xsd:element name="attachments2" type="tns:ArrayOfFileLink" minOccurs="0"/>
+                        <xsd:element name="kanc_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="ruk_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="answer" type="tns:ArrayOfDocument" minOccurs="0"/>
+                        <xsd:element name="documentSectionId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerNameKz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="note" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="resolution" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="receiver_fio_ru" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="idPortalInternal" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="userUin" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putIngoingResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putIngoingResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putIngoingECB">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="xsd:string"/>
+                        <xsd:element name="correspondent_from_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performers" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performers_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="outgoing_number" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="outgoing_date" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="author" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="author_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performer" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performer_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performer_phone" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="document_lang" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="document_form" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="control_type_code" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="control_type" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="control_type_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="external_deadline" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="rank" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="rank_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="delivery_method" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="page" type="xsd:int" minOccurs="0"/>
+                        <xsd:element name="app" type="xsd:int" minOccurs="0"/>
+                        <xsd:element name="copy" type="xsd:int" minOccurs="0"/>
+                        <xsd:element name="document_type_esedoid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="document_type_esedoid_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="question_type_esedoid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="question_type_esedoid_kz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="content" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink" minOccurs="0"/>
+                        <xsd:element name="kanc_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="ruk_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="answer" type="tns:ArrayOfDocument" minOccurs="0"/>
+                        <xsd:element name="documentSectionId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerNameKz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaTitleRu" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaTitleKz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaDevelopingStateAgency" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaApprovingStateAgency" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaStateAgencyDocNumber" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaStateAgencyApprovalDate" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="npaApprovalPlace" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaJudiciaryDocNumber" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaJudiciaryApprovalDate" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="npaRegion" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaSourcePub" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaIssuePub" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="npaDatePub" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="npaJudicialAuthority" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putIngoingECBResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putIngoingECBResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putIngoingSamruk">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="xsd:string"/>
+                        <xsd:element name="performers" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentNumber" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="date" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="subject" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="note" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink" minOccurs="0"/>
+                        <xsd:element name="languageId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localLangId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localLangNameRU" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localLangNameEN" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localLangNameKK" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="formSentDictionaryId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localFormSentDictionaryId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localFormSentDictionaryNameRU" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localFormSentDictionaryNameEN" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localFormSentDictionaryNameKK" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="idOrg" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="documentTypeId" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="localDocumentTypeId" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="localDocumentTypeNameRU" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="localDocumentTypeNameEN" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="localDocumentTypeNameKK" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="resolution" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="characterId" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="localCharacterNameRU" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="localCharacterNameEN" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="localCharacterNameKK" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="sheetCount" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="appendCount" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="officeSign" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="controlTypeCodeId" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="controlTypeNameRU" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="controlTypeNameKK" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="executorFIO" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="executorPhone" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="executionDateTime" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="receiverFIORu" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="onlyElectronicVersion" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="requestAnswer" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="docDataType" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="sendNumber" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="answerIncomingId" type="xsd:anyType" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putIngoingSamrukResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putIngoingSamrukResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="ArrayOfCorrespondent">
+                <xsd:complexContent>
+                    <xsd:restriction base="soap-enc:Array">
+                        <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Correspondent[]"/>
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="Correspondent">
+                <xsd:all>
+                    <xsd:element name="correspondent_esedoid" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:element name="putNotification">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="tns:ArrayOfCorrespondent"/>
+                        <xsd:element name="performers" type="tns:ArrayOfCorrespondent" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="from" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="doclog_send_time" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="state" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="date" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reg_nomer" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reg_date" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reg_reject" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reg_reject_text" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performer" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="performer_phone" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="deadline" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="actual_deadline" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="exec_result" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="ex_date" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reject_date" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="control_type_code" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="control_reject_date" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="deadline_date" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="idPortalInternal" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="userUin" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="send_status" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="tsoed_send_time" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="error_type" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="error_message" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putNotificationResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putNotificationResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putAppealPhysical">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="address" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="deliveryDate" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="idPortalInternal" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="juridicallyName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="middlename" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="name" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="outDate" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="outNumber" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="phone" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="surname" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="userUin" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="ruk_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="kanc_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putAppealPhysicalResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putAppealPhysicalResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putAppealLegal">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="address" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="deliveryDate" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="idPortalInternal" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="juridicallyName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="middlename" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="name" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="outDate" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="outNumber" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="phone" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="surname" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="userUin" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="ruk_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="kanc_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putAppealLegalResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putAppealLegalResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putOutgoingPhysOl">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="xsd:string"/>
+                        <xsd:element name="performers" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="address" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="carrierType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="citizenship" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="appendCount" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="character" type="xsd:long" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterCode" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterNameKz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterNameRu" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="deliveryDate" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docDateR" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="docKind" type="xsd:long" minOccurs="0"/>
+                        <xsd:element name="docLang" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docNoR" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docReqAuthor" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="idPortalInternal" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="juridicallyName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="middlename" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="name" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="executionDate" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="phone" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="note" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="regDateOL" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="regNumberOL" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="region" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="surname" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="sheetCount" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerNameKz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerNameRu" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="socialOrder" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="uniqueNumber" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="preparedDate" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="ruk_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="userUin" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="kanc_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="appeal_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putOutgoingPhysOlResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putOutgoingPhysOlResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putOutgoingLegalOl">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="xsd:string"/>
+                        <xsd:element name="performers" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="address" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="carrierType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="citizenship" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="appendCount" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="character" type="xsd:long" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterCode" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterNameKz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterNameRu" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="deliveryDate" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docDateR" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="docKind" type="xsd:long" minOccurs="0"/>
+                        <xsd:element name="docLang" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docNoR" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docReqAuthor" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="idPortalInternal" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="juridicallyName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="middlename" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="name" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="executionDate" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="phone" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="note" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="regDateOL" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="regNumberOL" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="region" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="surname" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="sheetCount" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerNameKz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerNameRu" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="socialOrder" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="uniqueNumber" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="preparedDate" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="ruk_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="userUin" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="kanc_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="appeal_sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putOutgoingLegalOlResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putOutgoingLegalOlResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putSection">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="xsd:string"/>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink" minOccurs="0"/>
+                        <xsd:element name="performers" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="carrierType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="character" type="xsd:long" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterCode" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterNameKz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="controlTypeOuterNameRu" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="dirordNumberKpm" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docDate" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="docKind" type="xsd:long" minOccurs="0"/>
+                        <xsd:element name="docLang" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docNumber" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="docSection" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentSectionId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="employeePhone" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="executionDate" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="executor" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="inDate" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="preparedDate" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="sectionId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="signerNameRu" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putSectionResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putSectionResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putEventPlan">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="xsd:string"/>
+                        <xsd:element name="performers" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="subject" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="area" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="start_time" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="chairman" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="protocol_type" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="secretary" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="attachments" type="tns:ArrayOfFileLink" minOccurs="0"/>
+                        <xsd:element name="content" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="sign" type="tns:ArrayOfSign" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="plan_id" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reg_number" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reg_date" type="xsd:dateTime" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putEventPlanResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putEventPlanResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putTask">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="correspondent_from" type="xsd:string"/>
+                        <xsd:element name="performers" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="section_number" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="content" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="control_time" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="plan_id" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="documentid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reg_number" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="reg_date" type="xsd:dateTime" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="putTaskResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="putTaskResult" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <portType name="TSD_WsPutDocumentModelPort">
+        <operation name="putIngoing">
+            <documentation>Входящий</documentation>
+            <input message="tns:putIngoingIn"/>
+            <output message="tns:putIngoingOut"/>
+        </operation>
+        <operation name="putIngoingECB">
+            <documentation>Входящий ЭКБ</documentation>
+            <input message="tns:putIngoingECBIn"/>
+            <output message="tns:putIngoingECBOut"/>
+        </operation>
+        <operation name="putIngoingSamruk">
+            <documentation>Входящий Samruk</documentation>
+            <input message="tns:putIngoingSamrukIn"/>
+            <output message="tns:putIngoingSamrukOut"/>
+        </operation>
+        <operation name="putNotification">
+            <documentation>Квитанции</documentation>
+            <input message="tns:putNotificationIn"/>
+            <output message="tns:putNotificationOut"/>
+        </operation>
+        <operation name="putAppealPhysical">
+            <documentation>Обращения fiz</documentation>
+            <input message="tns:putAppealPhysicalIn"/>
+            <output message="tns:putAppealPhysicalOut"/>
+        </operation>
+        <operation name="putAppealLegal">
+            <documentation>Обращения ur</documentation>
+            <input message="tns:putAppealLegalIn"/>
+            <output message="tns:putAppealLegalOut"/>
+        </operation>
+        <operation name="putOutgoingPhysOl">
+            <documentation>Прием перенаправления</documentation>
+            <input message="tns:putOutgoingPhysOlIn"/>
+            <output message="tns:putOutgoingPhysOlOut"/>
+        </operation>
+        <operation name="putOutgoingLegalOl">
+            <documentation>Прием перенаправления</documentation>
+            <input message="tns:putOutgoingLegalOlIn"/>
+            <output message="tns:putOutgoingLegalOlOut"/>
+        </operation>
+        <operation name="putSection">
+            <documentation>Прием пунктов</documentation>
+            <input message="tns:putSectionIn"/>
+            <output message="tns:putSectionOut"/>
+        </operation>
+        <operation name="putEventPlan">
+            <input message="tns:putEventPlanIn"/>
+            <output message="tns:putEventPlanOut"/>
+        </operation>
+        <operation name="putTask">
+            <input message="tns:putTaskIn"/>
+            <output message="tns:putTaskOut"/>
+        </operation>
+    </portType>
+    <binding name="TSD_WsPutDocumentModelBinding" type="tns:TSD_WsPutDocumentModelPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="putIngoing">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putIngoing"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putIngoingECB">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putIngoingECB"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putIngoingSamruk">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putIngoingSamruk"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putNotification">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putNotification"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putAppealPhysical">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putAppealPhysical"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putAppealLegal">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putAppealLegal"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putOutgoingPhysOl">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putOutgoingPhysOl"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putOutgoingLegalOl">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putOutgoingLegalOl"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putSection">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putSection"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putEventPlan">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putEventPlan"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="putTask">
+            <soap:operation soapAction="http://edocs523.local/ws/tsoed/putdocument#putTask"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="TSD_WsPutDocumentModelService">
+        <port name="TSD_WsPutDocumentModelPort" binding="tns:TSD_WsPutDocumentModelBinding">
+            <soap:address location="http://edocs523.local/ws/tsoed/putdocument"/>
+        </port>
+    </service>
+    <message name="putIngoingIn">
+        <part name="parameters" element="tns:putIngoing"/>
+    </message>
+    <message name="putIngoingOut">
+        <part name="parameters" element="tns:putIngoingResponse"/>
+    </message>
+    <message name="putIngoingECBIn">
+        <part name="parameters" element="tns:putIngoingECB"/>
+    </message>
+    <message name="putIngoingECBOut">
+        <part name="parameters" element="tns:putIngoingECBResponse"/>
+    </message>
+    <message name="putIngoingSamrukIn">
+        <part name="parameters" element="tns:putIngoingSamruk"/>
+    </message>
+    <message name="putIngoingSamrukOut">
+        <part name="parameters" element="tns:putIngoingSamrukResponse"/>
+    </message>
+    <message name="putNotificationIn">
+        <part name="parameters" element="tns:putNotification"/>
+    </message>
+    <message name="putNotificationOut">
+        <part name="parameters" element="tns:putNotificationResponse"/>
+    </message>
+    <message name="putAppealPhysicalIn">
+        <part name="parameters" element="tns:putAppealPhysical"/>
+    </message>
+    <message name="putAppealPhysicalOut">
+        <part name="parameters" element="tns:putAppealPhysicalResponse"/>
+    </message>
+    <message name="putAppealLegalIn">
+        <part name="parameters" element="tns:putAppealLegal"/>
+    </message>
+    <message name="putAppealLegalOut">
+        <part name="parameters" element="tns:putAppealLegalResponse"/>
+    </message>
+    <message name="putOutgoingPhysOlIn">
+        <part name="parameters" element="tns:putOutgoingPhysOl"/>
+    </message>
+    <message name="putOutgoingPhysOlOut">
+        <part name="parameters" element="tns:putOutgoingPhysOlResponse"/>
+    </message>
+    <message name="putOutgoingLegalOlIn">
+        <part name="parameters" element="tns:putOutgoingLegalOl"/>
+    </message>
+    <message name="putOutgoingLegalOlOut">
+        <part name="parameters" element="tns:putOutgoingLegalOlResponse"/>
+    </message>
+    <message name="putSectionIn">
+        <part name="parameters" element="tns:putSection"/>
+    </message>
+    <message name="putSectionOut">
+        <part name="parameters" element="tns:putSectionResponse"/>
+    </message>
+    <message name="putEventPlanIn">
+        <part name="parameters" element="tns:putEventPlan"/>
+    </message>
+    <message name="putEventPlanOut">
+        <part name="parameters" element="tns:putEventPlanResponse"/>
+    </message>
+    <message name="putTaskIn">
+        <part name="parameters" element="tns:putTask"/>
+    </message>
+    <message name="putTaskOut">
+        <part name="parameters" element="tns:putTaskResponse"/>
+    </message>
+</definitions>
