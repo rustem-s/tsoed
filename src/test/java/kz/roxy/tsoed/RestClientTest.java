@@ -11,10 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class SynergyStubRsTest {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+public class RestClientTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SynergyStubRsTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RestClientTest.class);
 
     @Autowired
     private RestClient restClient;
