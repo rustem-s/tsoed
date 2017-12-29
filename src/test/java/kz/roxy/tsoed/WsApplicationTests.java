@@ -1,6 +1,6 @@
 package kz.roxy.tsoed;
 
-import kz.roxy.tsoed.client.PutIngoingClient;
+import kz.roxy.tsoed.service.client.PutIngoingClient;
 import local.tsoed.ws.processing.index.ArrayOfCorrespondent;
 import local.tsoed.ws.processing.index.Correspondent;
 import local.tsoed.ws.processing.index.ObjectFactory;

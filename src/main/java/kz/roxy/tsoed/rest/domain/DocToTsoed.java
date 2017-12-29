@@ -6,6 +6,16 @@ public class DocToTsoed {
 
     private List<Correspondent> correspondentList;
 
+    private String name;
+
+    private List<Correspondent> correspondentFromList;
+
+    private List<Correspondent> performerList;
+
+    private List<Correspondent> performerKzList;
+
+    private String documentId;
+
     public List<Correspondent> getCorrespondentList() {
         return correspondentList;
     }
@@ -13,8 +23,6 @@ public class DocToTsoed {
     public void setCorrespondentList(List<Correspondent> correspondentList) {
         this.correspondentList = correspondentList;
     }
-
-    private String name;
 
     public String getName() {
         return name;

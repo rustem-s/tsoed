@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.client;
+package kz.roxy.tsoed.service.client;
 
 import local.tsoed.ws.processing.notification.ArrayOfCorrespondent;
 import local.tsoed.ws.processing.notification.PutNotification;

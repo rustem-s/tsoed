@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.client;
+package kz.roxy.tsoed.service.client;
 
 import local.tsoed.ws.processing.index.*;
 import org.slf4j.Logger;
