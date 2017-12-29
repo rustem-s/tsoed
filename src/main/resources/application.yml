@@ -1,0 +1,10 @@
+client:
+  default-uri: http://localhost:8080/ws/putingoing
+server:
+  port: 8080
+
+synergy:
+  baseUrl: http://synergy.ucc.com.kz:8080/Synergy/rest
+  createDocUrl: /api/registry/create_doc?registryID=de64e7ee-6381-4649-b6ba-7a7911097322
+
+authCode: JGtleTpiMmhyZEdWemRIUnZhMlZ1TFRGZk1qQXhOeTB4TWkweU9DQXhOam96T0RvME5RPT0=
