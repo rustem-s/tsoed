@@ -1,13 +1,16 @@
 package kz.roxy.tsoed.service.client;
 
-import local.tsoed.ws.processing.sendfile.*;
+import local.tsoed.ws.processing.sendfile.FileContent;
+import local.tsoed.ws.processing.sendfile.ObjectFactory;
+import local.tsoed.ws.processing.sendfile.SendFile;
+import local.tsoed.ws.processing.sendfile.SendFileResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.ws.client.core.WebServiceTemplate;
 
-@Component
+@Service
 public class SendFileClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(SendFileClient.class);
 
