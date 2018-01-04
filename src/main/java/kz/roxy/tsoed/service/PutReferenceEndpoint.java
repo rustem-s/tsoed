@@ -29,8 +29,6 @@ public class PutReferenceEndpoint {
         PutCorrespondentsResponse response = factory.createPutCorrespondentsResponse();
 
         try {
-
-
             List<Object> objectList = putCorrespondentsIn.getAny();
 
             for (Object object : objectList) {

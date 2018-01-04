@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties
 @ConfigurationProperties
-public class ApplicationConfig {
+public class ApplicationYml {
     private Synergy synergy;
 
     private String authCode;
@@ -15,6 +15,16 @@ public class ApplicationConfig {
     public static class Synergy {
         private String baseUrl;
         private String createDocUrl;
+        private String asformsDataUrl;
+        private String asformsDataSaveUrl;
+
+        public String getAsformsDataSaveUrl() {
+            return asformsDataSaveUrl;
+        }
+
+        public void setAsformsDataSaveUrl(String asformsDataSave) {
+            this.asformsDataSaveUrl = asformsDataSave;
+        }
 
         public String getBaseUrl() {
             return baseUrl;
@@ -30,6 +40,14 @@ public class ApplicationConfig {
 
         public void setCreateDocUrl(String createDocUrl) {
             this.createDocUrl = createDocUrl;
+        }
+
+        public String getAsformsDataUrl() {
+            return asformsDataUrl;
+        }
+
+        public void setAsformsDataUrl(String asformsDataUrl) {
+            this.asformsDataUrl = asformsDataUrl;
         }
     }
 
@@ -48,4 +66,6 @@ public class ApplicationConfig {
     public void setAuthCode(String authCode) {
         this.authCode = authCode;
     }
+
+
 }

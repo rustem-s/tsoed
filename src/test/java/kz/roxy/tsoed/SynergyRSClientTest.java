@@ -1,8 +1,11 @@
 package kz.roxy.tsoed;
 
 import kz.roxy.tsoed.rest.SynergyRSClient;
+import kz.roxy.tsoed.rest.domain.synergy.AsformsDataResponse;
+import kz.roxy.tsoed.rest.domain.synergy.AsformsDataSaveResponse;
 import kz.roxy.tsoed.rest.domain.synergy.CreateDocResponse;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,14 +24,54 @@ public class SynergyRSClientTest {
     private SynergyRSClient synergyRSClient;
 
     @Test
-    public void getCreateDoc() throws Exception {
-        ResponseEntity<CreateDocResponse> response = synergyRSClient.callRegistryCreateDoc();
+    @Ignore
+    public void сreateDocTest() throws Exception {
 
-        CreateDocResponse createDocResponse = response.getBody();
-        if (createDocResponse == null) {
+        CreateDocResponse response = synergyRSClient.callRegistryCreateDoc();
+
+        if (response == null) {
             throw new TsoedException("createDocResponse is null");
         }
         LOGGER.info("response: getErrorCode = {}, getDocumentID = {}, getAsfNodeID = {}, getDataUUID = {}",
-                createDocResponse.getErrorCode(), createDocResponse.getDocumentID(), createDocResponse.getAsfNodeID(), createDocResponse.getDataUUID());
+                response.getErrorCode(), response.getDocumentID(), response.getAsfNodeID(), response.getDataUUID());
     }
+
+    @Test
+    @Ignore
+    public void callAsformsDataTest() throws Exception {
+
+        String dataUUID = "8cece052-ceb3-454e-8972-73025a929096";
+
+        AsformsDataResponse response = synergyRSClient.callAsformsData(dataUUID);
+
+        if (response == null) {
+            throw new TsoedException("asformsDataResponse is null");
+        }
+        LOGGER.info("response: getForm = {}; getFormVersion = {}; getUuid = {}; getData.size = {}", response.getForm(), response.getFormVersion(), response.getUuid(), response.getData().size());
+    }
+
+    @Test
+    public void callAsformsDataSaveTest() throws Exception {
+
+        String formUUID = "8cece052-ceb3-454e-8972-73025a929096";
+
+        AsformsDataResponse asformsDataResponse = synergyRSClient.callAsformsData(formUUID);
+
+        if (asformsDataResponse == null) {
+            throw new TsoedException("asformsDataResponse is null");
+        }
+
+        AsformsDataSaveResponse response = synergyRSClient.callAsformsDataSave(
+                asformsDataResponse.getUuid(),
+                asformsDataResponse.getData()
+        );
+
+        if (response == null) {
+            throw new TsoedException("response is null");
+        }
+        LOGGER.info("response: {}",  response);
+    }
+
+
+
 }

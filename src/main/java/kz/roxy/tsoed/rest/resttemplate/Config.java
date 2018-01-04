@@ -14,7 +14,6 @@ public class Config {
     @Bean
     public RestTemplate appRestTemplate() {
         RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-//        RestTemplate restTemplate = new RestTemplate();
         restTemplate.setInterceptors(Collections.singletonList(new RequestLoggingInterceptor()));
         return restTemplate;
     }
