@@ -48,13 +48,14 @@ public class SynergyRSClient {
     }
 
     public AsformsDataResponse callAsformsData(String dataUUID) {
-        String url = config.getSynergy().getBaseUrl() + config.getSynergy().getAsformsDataUrl() + dataUUID;
+        String url = config.getSynergy().getBaseUrl() + config.getSynergy().getAsformsDataUrl();
 
         ResponseEntity<AsformsDataResponse> response = appRestTemplate.exchange(
                 url,
                 HttpMethod.GET,
                 restUtilService.buildHttpEntity(),
-                AsformsDataResponse.class
+                AsformsDataResponse.class,
+                dataUUID
         );
 
         return response.getBody();
@@ -85,11 +86,9 @@ uuid - uuid данных по форме
 errorCode - код выполнения (число, отличное от 0)
 errorMessage - сообщение об ошибке
         */
-        // String dataUUID = "8cece052-ceb3-454e-8972-73025a929096";
         ApplicationYml.Synergy synergy = config.getSynergy();
-//      String url = config.getSynergy().getBaseUrl() + synergy.getAsformsDataSaveUrl() + code+"&"+responsecallAsformsData.getBody().getUuid()+"&"+ "\"data\": "+responsecallAsformsData.getBody().getData();
         String url = config.getSynergy().getBaseUrl() + synergy.getAsformsDataSaveUrl();
-        String dataJson = new Gson().toJson(asformsDataDataList);
+        String dataJson = "\"data\":" + new Gson().toJson(asformsDataDataList);
         ResponseEntity<AsformsDataSaveResponse> response = appRestTemplate.exchange(
                 url,
                 HttpMethod.POST,
