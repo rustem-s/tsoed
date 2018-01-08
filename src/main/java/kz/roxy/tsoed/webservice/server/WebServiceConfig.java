@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.service;
+package kz.roxy.tsoed.webservice.server;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -22,7 +22,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
 
-        return new ServletRegistrationBean(servlet, "/ws/*");
+        return new ServletRegistrationBean(servlet, "/webservice/*");
     }
 
     @Bean(name = "putreference")

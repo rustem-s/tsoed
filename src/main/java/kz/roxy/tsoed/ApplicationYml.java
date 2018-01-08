@@ -17,6 +17,7 @@ public class ApplicationYml {
         private String createDocUrl;
         private String asformsDataUrl;
         private String asformsDataSaveUrl;
+        private String formCode;
 
         public String getAsformsDataSaveUrl() {
             return asformsDataSaveUrl;
@@ -48,6 +49,14 @@ public class ApplicationYml {
 
         public void setAsformsDataUrl(String asformsDataUrl) {
             this.asformsDataUrl = asformsDataUrl;
+        }
+
+        public String getFormCode() {
+            return formCode;
+        }
+
+        public void setFormCode(String formCode) {
+            this.formCode = formCode;
         }
     }
 

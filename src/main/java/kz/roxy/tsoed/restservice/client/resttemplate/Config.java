@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.rest.resttemplate;
+package kz.roxy.tsoed.restservice.client.resttemplate;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

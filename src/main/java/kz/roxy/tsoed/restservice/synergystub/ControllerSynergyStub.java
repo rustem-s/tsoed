@@ -1,6 +1,6 @@
-package kz.roxy.tsoed.rest.synergystub;
+package kz.roxy.tsoed.restservice.synergystub;
 
-import kz.roxy.tsoed.rest.domain.synergy.Form;
+import kz.roxy.tsoed.restservice.domain.synergy.Form;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

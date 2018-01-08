@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.service;
+package kz.roxy.tsoed.webservice.server;
 
 import local.edocs523.ws.tsoed.putdocument.ObjectFactory;
 import local.edocs523.ws.tsoed.putdocument.PutIngoing;
@@ -18,7 +18,7 @@ public class PutDocumentEndpoint {
 
     private static final String RESPONSE_OK = "OK";
 
-    @PayloadRoot(namespace = "http://edocs523.local/ws/tsoed/putdocument", localPart = "putIngoing")
+    @PayloadRoot(namespace = "http://edocs523.local/webservice/tsoed/putdocument", localPart = "putIngoing")
     @ResponsePayload
     public PutIngoingResponse putIngoing(@RequestPayload PutIngoing putIngoingIn) {
         LOGGER.info("putIngoingIn='{}'", putIngoingIn);
@@ -37,7 +37,7 @@ public class PutDocumentEndpoint {
         return response;
     }
 
-    @PayloadRoot(namespace = "http://edocs523.local/ws/tsoed/putdocument", localPart = "putNotification")
+    @PayloadRoot(namespace = "http://edocs523.local/webservice/tsoed/putdocument", localPart = "putNotification")
     @ResponsePayload
     public PutNotificationResponse putNotification(@RequestPayload PutIngoing putNotificationIn) {
         LOGGER.info("putNotificationIn='{}'", putNotificationIn);

@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.rest.domain.synergy;
+package kz.roxy.tsoed.restservice.domain.synergy;
 
 public class Form {
     private String field1;

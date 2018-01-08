@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.service;
+package kz.roxy.tsoed.webservice.server;
 
 import local.edocs523.ws.tsoed.putreference.ArrayOfCorrespondents;
 import local.edocs523.ws.tsoed.putreference.Correspondents;
@@ -20,7 +20,7 @@ public class PutReferenceEndpoint {
 
     private static final String RESPONSE_OK = "OK";
 
-    @PayloadRoot(namespace = "http://edocs523.local/ws/tsoed/putreference", localPart = "putCorrespondents")
+    @PayloadRoot(namespace = "http://edocs523.local/webservice/tsoed/putreference", localPart = "putCorrespondents")
     @ResponsePayload
     public PutCorrespondentsResponse putCorrespondents(@RequestPayload ArrayOfCorrespondents putCorrespondentsIn) {
         LOGGER.info("putCorrespondentsIn='{}'", putCorrespondentsIn);

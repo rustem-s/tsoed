@@ -1,10 +1,9 @@
-package kz.roxy.tsoed.rest.resttemplate;
+package kz.roxy.tsoed.restservice.client.resttemplate;
 
 import kz.roxy.tsoed.ApplicationYml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +14,12 @@ public class RestUtilService {
     @Autowired
     private ApplicationYml applicationYml;
 
-    public HttpEntity buildHttpEntity() {
+    public HttpHeaders buildHttpHeaders() {
         HttpHeaders headers = new HttpHeaders();
         String authCode = applicationYml.getAuthCode();
         headers.set("Authorization", "Basic " + authCode);
         headers.set("Accept", "*/*");
-        return new HttpEntity(headers);
+        return headers;
     }
+
 }

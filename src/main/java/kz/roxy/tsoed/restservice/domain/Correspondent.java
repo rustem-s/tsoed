@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.rest.domain;
+package kz.roxy.tsoed.restservice.domain;
 
 
 public class Correspondent {

@@ -1,6 +1,6 @@
-package kz.roxy.tsoed.rest;
+package kz.roxy.tsoed.restservice.server;
 
-import kz.roxy.tsoed.rest.domain.DocToTsoed;
+import kz.roxy.tsoed.restservice.domain.DocToTsoed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;

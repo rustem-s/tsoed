@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.service;
+package kz.roxy.tsoed.webservice.server;
 
 import local.edocs523.ws.tsoed.getfile.FileContent;
 import local.edocs523.ws.tsoed.getfile.GetFile;
@@ -16,7 +16,7 @@ public class GetFileEndpoint {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GetFileEndpoint.class);
 
-    @PayloadRoot(namespace = "http://edocs523.local/ws/tsoed/getfile", localPart = "getFile")
+    @PayloadRoot(namespace = "http://edocs523.local/webservice/tsoed/getfile", localPart = "getFile")
     @ResponsePayload
     public GetFileResponse getFile(@RequestPayload GetFile getFile) {
         LOGGER.info("request='{}'", getFile);

@@ -1,4 +1,4 @@
-package kz.roxy.tsoed.rest.domain.synergy;
+package kz.roxy.tsoed.restservice.domain.synergy;
 
 import java.util.List;
 
