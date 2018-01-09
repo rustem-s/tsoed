@@ -22,13 +22,20 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
 
-        return new ServletRegistrationBean(servlet, "/webservice/*");
+        return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
     @Bean(name = "putreference")
     public Wsdl11Definition putReferenceWsdl11Definition() {
         SimpleWsdl11Definition wsdl11Definition = new SimpleWsdl11Definition();
         wsdl11Definition.setWsdl(new ClassPathResource("/wsdl/ServicePutReference.wsdl"));
+        return wsdl11Definition;
+    }
+
+    @Bean(name = "putdocument")
+    public Wsdl11Definition putDocumentWsdl11Definition() {
+        SimpleWsdl11Definition wsdl11Definition = new SimpleWsdl11Definition();
+        wsdl11Definition.setWsdl(new ClassPathResource("/wsdl/ServicePutDocument.wsdl"));
         return wsdl11Definition;
     }
 
